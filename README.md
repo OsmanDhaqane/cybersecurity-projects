@@ -164,6 +164,17 @@ As a cybersecurity analyst, you are tasked with using this event to create a pla
 
 ## Project 4: Use Linux commands to manage file permissions
 
+### Project Description
+As a security professional, ensuring proper file permissions is essential for maintaining the security and integrity of organizational systems. In this activity, I examined and updated file and directory permissions using Linux commands to align with organizational policies. These tasks demonstrated practical experience in managing file authorizations to support secure collaboration.
+
+### Check File and Directory Details
+To check the current permissions of files and directories, I used the following command:
+
+ls -la projects
+
+This command lists all files, including hidden ones, in the projects directory with detailed information about their permissions, ownership, and other attributes.
+
+![Screenshot of ls -la output](cybersecurity-projects/images/linux_file_permissions)
 
 
 
