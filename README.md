@@ -10,8 +10,8 @@ I am a motivated IT professional with a degree in Digital Forensics & Incident R
 - [Project 1: Professional Statement](#project-1-professional-statement)
 - [Project 2: Conduct a security audit](#project-2-conduct-a-security-audit)
 - [Project 3: Analyzing network intrusion structure and security response to a security incident](#project-3-analyzing-network-intrusion-structure-and-security-response-to-a-security-incident)
-- [Project 4: Applying filters to SQL queries](#project-4-applying-filters-to-sql-queries)
-- [Project 5: Use Linux commands to manage file permissions](#project-5-use-linux-commands-to-manange-file-permissions)
+- [Project 4: Use Linux commands to manage file permissions](#project-5-use-linux-commands-to-manange-file-permissions)
+- [Project 5: Applying filters to SQL queries](#project-4-applying-filters-to-sql-queries)
 - [Project 6: Analyze vulnerable system for a small business](#project-6-analyze-vulnerable-system-for-a-small-business)
 - [Project 7: Document an incident with an incident handlers journal](#project-7-document-an-incident-with-an-incident-handlers-journal)
 - [Project 8: Update a file through a Python algorithm](#project-8-update-a-file-through-a-python-algorithm)
@@ -158,6 +158,11 @@ As a cybersecurity analyst, you are tasked with using this event to create a pla
 
 - **NIST Cybersecurity Framework (CSF):** [NIST CSF](https://www.nist.gov/cyberframework)
 - Additional reference materials on DDoS attacks and incident response best practices.
+
+
+---
+
+## Project 4: Use Linux commands to manage file permissions
 
 
 
