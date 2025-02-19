@@ -220,3 +220,20 @@ The following code demonstrates how I used Linux commands to change the permissi
 
 The first two lines of the screenshot display the commands I entered, and the remaining lines show the output of the second command. I know that `.project_x.txt` is a hidden file because it starts with a period (`.`). In this example, I removed write permissions from both the user and group, and added read permissions to the group. I removed write permissions from the user with `u-w`, then removed write permissions from the group with `g-w`, and finally added read permissions to the group with `g+r`.
 
+
+### Change directory permissions
+
+![Screenshot of ls -la output](images/linux_file_permissions/Screenshot-2024-12-23-at-04.51.06.png)
+
+My organization only wants the researcher2 user to have access to the drafts directory and its contents. This means that no one other than researcher2 should have execute permissions.
+
+The following code demonstrates how I used Linux commands to change the permissions:
+
+![Screenshot of ls -la output](images/linux_file_permissions/Screenshot-2024-12-23-at-04.52.16.png)
+
+The first two lines of the screenshot display the commands I entered, and the remaining lines show the output of the second command. I previously determined that the group had execute permissions, so I used the `chmod` command to remove them. The `researcher2` user already had execute permissions, so no changes were needed for that user.
+
+
+### Summary
+
+In this activity, I examined and modified file and directory permissions using Linux commands. Key tasks included reviewing permissions with `ls -la`, interpreting permission strings, and updating access using `chmod` to comply with security policies. These actions ensured that unauthorized access was removed and that only the appropriate users retained the necessary permissions. This exercise highlights the importance of understanding and applying Linux file permission management for maintaining secure systems.
