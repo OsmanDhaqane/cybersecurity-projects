@@ -168,13 +168,55 @@ As a cybersecurity analyst, you are tasked with using this event to create a pla
 As a security professional, ensuring proper file permissions is essential for maintaining the security and integrity of organizational systems. In this activity, I examined and updated file and directory permissions using Linux commands to align with organizational policies. These tasks demonstrated practical experience in managing file authorizations to support secure collaboration.
 
 ### Check File and Directory Details
-To check the current permissions of files and directories, I used the following command:
+The following command demonstrates how I used Linux commands to determine the existing permissions set for a specific directory in the file system.
 
 ls -la projects
 
-This command lists all files, including hidden ones, in the projects directory with detailed information about their permissions, ownership, and other attributes.
+![Screenshot of ls -la output](images/linux_file_permissions/Screenshot-2024-12-23-at-04.29.09.png)
 
-![Screenshot of ls -la output](cybersecurity-projects/images/linux_file_permissions)
+The first line of the screenshot displays the command I entered, and the other lines display the output. The code lists all contents of the projects directory. I used the ls command with the -la option to display a detailed listing of the file contents that also returned hidden files. The output of my command indicates that there is one directory named drafts, one hidden file named .project_x.txt, and five other project files. The 10-character string in the first column represents the permissions set on each file or directory.
+
+### Describe the Permissions String
+
+The 10-character string can be deconstructed to determine who is authorized to access the file and their specific permissions. The characters and what they represent are as follows:
+- **1st character:** This character is either a `d` or a hyphen (`-`) and indicates the file type.  
+  - If it’s a `d`, it’s a directory.  
+  - If it’s a hyphen (`-`), it’s a regular file.
+- **2nd-4th characters:** These characters indicate the read (`r`), write (`w`), and execute (`x`) permissions for the user.  
+  - A hyphen (`-`) in place of any of these indicates that the permission is not granted to the user.
+- **5th-7th characters:** These characters indicate the read (`r`), write (`w`), and execute (`x`) permissions for the group.  
+  - A hyphen (`-`) in place of any of these indicates that the permission is not granted for the group.
+- **8th-10th characters:** These characters indicate the read (`r`), write (`w`), and execute (`x`) permissions for others (all other users on the system apart from the user and group).  
+  - A hyphen (`-`) in place of any of these indicates that the permission is not granted for others.
+
+For example, if the file permissions for `project_t.txt` are `-rw-rw-r--`:
+- The first character is a hyphen (`-`), indicating that `project_t.txt` is a regular file, not a directory.
+- The second, fifth, and eighth characters are `r`, which means that the user, group, and others all have read permissions.
+- The third and sixth characters are `w`, which means that only the user and group have write permissions.
+- No execute permissions are granted for `project_t.txt`.
+
+### Change file permissions
+
+![Screenshot of ls -la output](images/linux_file_permissions/Screenshot-2024-12-23-at-04.37.32.png)
+
+The organization determined that others shouldn't have write access to any of their files. To comply with this, I reviewed the current file permissions and determined that `project_k.txt` must have its write access removed for others.
+
+The following code demonstrates how I used Linux commands to do this:
+
+![Screenshot of ls -la output](images/linux_file_permissions/Screenshot-2024-12-23-at-04.38.43.png)
+
+The first two lines of the screenshot display the commands I entered, and the remaining lines show the output of the second command. The `chmod` command changes the permissions on files and directories. The first argument indicates which permissions should be changed, and the second argument specifies the file or directory. In this example, I removed write permissions from others for the `project_k.txt` file. After executing the command, I used `ls -la` to review the updates I made.
 
 
+### Change file permissions on a hidden file
+
+![Screenshot of ls -la output](images/linux_file_permissions/Screenshot-2024-12-23-at-04.44.16.png)
+
+The research team at my organization recently archived `project_x.txt`. They do not want anyone to have write access to this project, but the user and group should retain read access.
+
+The following code demonstrates how I used Linux commands to change the permissions:
+
+![Screenshot of ls -la output](images/linux_file_permissions/Screenshot-2024-12-23-at-04.46.51.png)
+
+The first two lines of the screenshot display the commands I entered, and the remaining lines show the output of the second command. I know that `.project_x.txt` is a hidden file because it starts with a period (`.`). In this example, I removed write permissions from both the user and group, and added read permissions to the group. I removed write permissions from the user with `u-w`, then removed write permissions from the group with `g-w`, and finally added read permissions to the group with `g+r`.
 
