@@ -237,3 +237,20 @@ The first two lines of the screenshot display the commands I entered, and the re
 ### Summary
 
 In this activity, I examined and modified file and directory permissions using Linux commands. Key tasks included reviewing permissions with `ls -la`, interpreting permission strings, and updating access using `chmod` to comply with security policies. These actions ensured that unauthorized access was removed and that only the appropriate users retained the necessary permissions. This exercise highlights the importance of understanding and applying Linux file permission management for maintaining secure systems.
+
+### Sources
+
+- [The Linux Documentation Project – File Permissions](https://tldp.org/LDP/intro-linux/html/sect_03_04.html)
+- [GNU Coreutils: ls](https://www.gnu.org/software/coreutils/ls)
+- [GNU Coreutils: chmod](https://www.gnu.org/software/coreutils/chmod)
+- [Understanding Linux File Permissions – Linuxize](https://linuxize.com/post/understanding-linux-file-permissions/)
+
+
+---
+
+## Project 5: Applying filters to SQL queries
+
+### Project Description
+
+As a security professional, my role is to investigate potential vulnerabilities, secure the system, and facilitate updates to employee machines where necessary. This document showcases how I utilized SQL filters to address security challenges, analyze login activity, and retrieve targeted employee data for further actions.
+
