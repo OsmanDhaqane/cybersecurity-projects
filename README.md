@@ -498,3 +498,49 @@ Integrating these measures will help reduce the overall attack surface and enhan
 - **Was there a specific tool or concept that you enjoyed the most? Why?**  
   I enjoyed working with Splunk and Suricata because they provided real-time insights into security events, making threat detection more effective.
 
+
+---
+
+## Project 8: Update a file through a Python algorithm
+
+### Algorithm for file updates in Python
+
+### Project Description
+
+At my organization, we manage access to sensitive content using an approved list of IP addresses stored in a file named `allow_list.txt`. We also maintain a separate list of IP addresses that should no longer have access. To streamline our process, I developed an algorithm that automatically updates the allow list by removing any IP addresses found in the removal list.
+
+## Step 1: Open the Allow List File
+The initial step of the algorithm involves working with the `allow_list.txt` file, which contains all the permitted IP addresses. First, the file name is stored in a variable called `import_file`:
+
+```python
+import_file = "allow_list.txt"
+```
+
+![Screenshot of python code snippet](images/python_code/Screenshot-2025-02-06-at-18.34.40.png)
+
+Next, I use a with statement to open the file in read mode. The with statement calls the open() function with two parameters: the file name (`import_file`) and the mode "r", which specifies that the file should be opened for reading. By using with, the file is automatically closed once the block of code is finished executing, which helps manage system resources efficiently. Additionally, I assign the resulting file object to a variable named `file`, making it easy to access the file’s contents while working within the with block:
+
+```python
+with open(import_file, "r") as file:
+```
+![Screenshot of python code snippet](images/python_code/Screenshot-2025-02-06-at-18.35.15.png)
+
+This approach ensures that I can safely and effectively read the IP addresses from the file without having to worry about manually closing it afterward.
+
+
+### Read the file contents
+
+To capture the file's contents as a string, I leveraged Python's .read() method. Here’s a breakdown of the process in my own words:
+
+![Screenshot of python code snippet](images/python_code/Screenshot-2025-02-06-at-18.36.11.png)
+
+1. Opening the File  
+I open the "allow_list.txt" file using a with statement in read mode. This not only makes the file available for reading but also ensures it’s automatically closed after the operations are complete.
+
+2. Reading the File Content  
+Inside the with block, I invoke the .read() method on the file object. This method reads the entire file and converts its contents into a single string. I then assign this string to a variable named ip_addresses.
+
+3. Purpose and Benefits  
+The main goal here is to load all the IP addresses from "allow_list.txt" into the ip_addresses variable. Converting the file content to a string makes it easier to later parse and manipulate the data. Additionally, using the with statement helps manage system resources by ensuring the file is properly closed after reading.
+
+In summary, this approach reads the contents of "allow_list.txt" into a string, storing it in ip_addresses, which can then be processed to extract or organize the IP addresses as needed in the program.
