@@ -11,7 +11,7 @@ I am a motivated IT professional with a degree in Digital Forensics & Incident R
 - [Project 2: Conduct a security audit](#project-2-conduct-a-security-audit)
 - [Project 3: Analyzing network intrusion structure and security response to a security incident](#project-3-analyzing-network-intrusion-structure-and-security-response-to-a-security-incident)
 - [Project 4: Use Linux commands to manage file permissions](#project-4-use-linux-commands-to-manange-file-permissions)
-- [Project 5: Applying filters to SQL queries](#project-4-applying-filters-to-sql-queries)
+- [Project 5: Applying filters to SQL queries](#project-5-applying-filters-to-sql-queries)
 - [Project 6: Analyze vulnerable system for a small business](#project-6-analyze-vulnerable-system-for-a-small-business)
 - [Project 7: Document an incident with an incident handlers journal](#project-7-document-an-incident-with-an-incident-handlers-journal)
 - [Project 8: Update a file through a Python algorithm](#project-8-update-a-file-through-a-python-algorithm)
@@ -253,4 +253,89 @@ In this activity, I examined and modified file and directory permissions using L
 ### Project Description
 
 As a security professional, my role is to investigate potential vulnerabilities, secure the system, and facilitate updates to employee machines where necessary. This document showcases how I utilized SQL filters to address security challenges, analyze login activity, and retrieve targeted employee data for further actions.
+
+### Retrieve after hours failed login attempts
+
+**Query:**
+
+![Screenshot of retrieve hours failed login attempts](images/SQL_fliters/1_after_hours_failed_logins.png)
+
+**Explanation:**  
+This query identifies failed login attempts that occurred after business hours. First, I selected all records from the `log_in_attempts` table. Then, I added a `WHERE` clause with two conditions connected by the `AND` operator. The first condition, `login_time > '18:00'`, filters for login attempts made after 6:00 PM, and the second condition, `success = 0`, ensures that only failed login attempts are returned. This approach helps narrow down potentially suspicious activities.
+
+**Output:**  
+The output included rows of failed login attempts with their respective timestamps and user IDs, allowing further investigation of after-hours access attempts.
+
+### Retrieve login attempts on specific dates
+
+**Query:**
+
+![Screenshot of retrieve login attempts on specific dates](images/SQL_fliters/2_login_attempts_specific_dates.png)
+![Screenshot of retrieve login attempts on specific dates](images/SQL_fliters/2.1_login_attempts_specific_dates.png)
+
+**Explanation:**  
+This query filters for login attempts that occurred on May 8 or May 9, 2022. First, I selected all data from the `log_in_attempts` table. Then, I used a `WHERE` clause with an `OR` operator to include records matching either of the two specified dates. The first condition, `login_date = '2022-05-09'`, filters for login attempts on May 9, while the second condition, `login_date = '2022-05-08'`, filters for login attempts on May 8. This allows for a comprehensive review of activity over both days.
+
+**Output:**  
+The results displayed login details, including user IDs and times, for all login attempts on the specified dates, enabling targeted investigation.
+
+
+### Retrieve login attempts outside of Mexico
+
+**Query:**
+
+![Screenshot of retrieve login attempts outside of Mexico](images/SQL_fliters/3_login_attempts_outside_mexico.png)
+![Screenshot of retrieve login attempts outside of Mexico](images/SQL_fliters/3.1_login_attempts_outside_mexico.png)
+
+**Explanation:**  
+This query filters out login attempts originating from Mexico. First, I selected all records from the `log_in_attempts` table. Then, I used a `WHERE` clause with `NOT LIKE` to exclude entries where the `country` column matches "MEX%" or "MEXICO." The `%` wildcard accounts for variations in how the country is represented, ensuring all references to Mexico are excluded.
+
+**Output:**  
+The output included login attempts from countries other than Mexico, detailing timestamps and user IDs for further investigation.
+
+
+### Retrieve employees in Marketing
+
+**Query:**
+
+![Screenshot of retrieve employees in Marketing](images/SQL_fliters/4_employees_in_marketing.png)
+
+**Explanation:**  
+This query retrieves employees in the Marketing department who work in the East building. I started by selecting all records from the `employees` table. Then, I added a `WHERE` clause with two conditions connected by the `AND` operator. The first condition, `department = 'Marketing'`, filters for employees in the Marketing department. The second condition, `office LIKE 'East-%'`, ensures that only employees working in the East building are included. The `%` wildcard captures any variations in office numbers within the East building.
+
+**Output:**  
+The results showed a list of Marketing employees working in the East building, along with their office numbers and job titles.
+
+
+### Retrieve employees in Finance or Sales
+
+**Query:**
+
+![Screenshot of retrieve employees in finance sales](images/SQL_fliters/5_employees_in_finance_or_sales.png)
+![Screenshot of retrieve employees in finance sales](images/SQL_fliters/5.1_employees_in_finance_or_sales.png)
+
+**Explanation:**  
+This query retrieves employees in either the Finance or Sales departments. First, I selected all records from the `employees` table. Then, I used a `WHERE` clause with an `OR` operator to include records that match either condition. The first condition, `department = 'Finance'`, filters for employees in Finance, and the second condition, `department = 'Sales'`, filters for employees in Sales. This approach ensures that all relevant employees are captured.
+
+**Output:**  
+The query returned employees from both departments, listing their names, department affiliations, and office locations.
+
+
+### Retrieve all employees not in IT
+
+**Query:**
+
+![Screenshot of retrieve employees not in IT](images/SQL_fliters/6_employees_not_in_IT.png)
+![Screenshot of retrieve employees not in IT](images/SQL_fliters/6.1_employees_not_in_IT.png)
+
+**Explanation:**  
+This query filters for employees who are not part of the Information Technology department. First, I selected all records from the `employees` table. Then, I added a `WHERE` clause with `NOT LIKE` to exclude records where the `department` column starts with "Information Technology." This ensures that employees from other departments are included while accounting for potential variations in how the department is named.
+
+**Output:**  
+The output listed employees from all departments except IT, along with their job titles and office locations, facilitating updates for their systems.
+
+
+### Summary
+
+I applied filters to SQL queries to retrieve specific information on login attempts and employee machines. By using the `log_in_attempts` and `employees` tables, I demonstrated how to apply `AND`, `OR`, and `NOT` operators to refine results based on various conditions. Additionally, I used `LIKE` and the `%` wildcard to search for patterns effectively. These techniques supported identifying suspicious login activities and retrieving targeted employee data for security updates, ensuring the organization’s systems remain secure.
 
