@@ -532,6 +532,11 @@ This approach ensures that I can safely and effectively read the IP addresses fr
 
 To capture the file's contents as a string, I leveraged Python's .read() method. Here’s a breakdown of the process in my own words:
 
+```python
+with open(import_file, "r") as file:
+  ip_addresses = file.read()
+```
+
 ![Screenshot of python code snippet](images/python_code/Screenshot-2025-02-06-at-18.36.11.png)
 
 1. Opening the File  
@@ -544,3 +549,91 @@ Inside the with block, I invoke the .read() method on the file object. This meth
 The main goal here is to load all the IP addresses from "allow_list.txt" into the ip_addresses variable. Converting the file content to a string makes it easier to later parse and manipulate the data. Additionally, using the with statement helps manage system resources by ensuring the file is properly closed after reading.
 
 In summary, this approach reads the contents of "allow_list.txt" into a string, storing it in ip_addresses, which can then be processed to extract or organize the IP addresses as needed in the program.
+
+
+### Convert the string into a list
+
+After reading the entire file into a string, the next step was to break that string into individual IP addresses. I accomplished this by using the `.split()` method, which divides a string into a list of substrings based on whitespace by default. This is useful because having a list of IP addresses makes it easier to iterate over them and remove specific entries when needed. Here's the code snippet:
+
+```python
+ip_addresses = ip_addresses.split()
+```
+![Screenshot of python code snippet](images/python_code/Screenshot-2025-02-06-at-18.36.47.png)
+
+In this snippet, the `.split()` method takes the string stored in `ip_addresses` and splits it at every whitespace, converting it into a list where each element is one IP address. This reassignment back to `ip_addresses` ensures that the variable now holds a list, paving the way for further manipulations like removing unwanted IP addresses.
+
+
+### Iterate through the remove list
+
+In this part of the algorithm, I loop through each IP address to check for potential removals. I achieve this using a for loop, which efficiently processes each item in a sequence one at a time. Here’s how it works:
+
+1. **Iteration Setup:**  
+   The for loop is initiated with a loop variable (in this case, named "element") that takes on the value of each IP address from the list during every iteration.
+
+2. **Code Execution for Each IP:**  
+   For every IP address in the list, the code inside the loop is executed, allowing me to check whether that IP should be removed based on the criteria in the remove list.
+
+3. **Simplicity and Clarity:**  
+   This approach not only simplifies the task by automatically iterating through the entire list but also ensures that the same removal logic is uniformly applied to every IP address.
+
+The corresponding code snippet looks like this:
+
+```python
+for element in ip_addresses:
+```
+![Screenshot of python code snippet](images/python_code/Screenshot-2025-02-06-at-18.37.28.png)
+
+This loop structure is key to efficiently processing each IP address in the list, making it straightforward to identify and remove any unwanted entries.
+
+
+### Remove IP addresses that are on the remove list
+
+To filter out the IP addresses that shouldn’t have access, I looped through each entry in the allow list (`ip_addresses`) and checked if it was present in the remove list. If it was, I removed that entry using the `.remove()` method. Here's a breakdown of the process:
+
+1. **Iterating Over the List:**  
+   I used a for loop to go through each IP address in `ip_addresses`. This loop assigns each IP address in turn to a loop variable (named `element`).
+
+2. **Conditional Check:**  
+   Inside the loop, I set up an if statement to verify whether the current IP address exists in the remove list. This is a crucial step because attempting to remove an IP address that isn’t in the list would cause an error.
+
+3. **Removing the IP Address:**  
+   When the condition is met (i.e., the IP address is found in `remove_list`), I use the `.remove()` method to delete that specific entry from `ip_addresses`.
+
+The code snippet looks like this:
+
+```python
+for element in ip_addresses:
+    if element in remove_list:
+        ip_addresses.remove(element)
+```
+![Screenshot of python code snippet](images/python_code/Screenshot-2025-02-06-at-18.51.07.png)
+
+This approach ensures that every IP address flagged for removal is properly eliminated from the allow list, maintaining the integrity of the access control process.
+
+
+### Update the file with the revised list of IP addresses 
+
+For the final part of the algorithm, I needed to update the allow list file with the revised list of IP addresses. To do this, I first converted the list of IP addresses back into a single string, which can be written directly to a file. I accomplished this by using the `.join()` method, which takes all the elements of a list and concatenates them into one string. I used "\n" as the separator so that each IP address appears on a new line:
+
+```python
+ip_addresses = "\n".join(ip_addresses)
+```
+
+![Screenshot of python code snippet](images/python_code/Screenshot-2025-02-06-at-18.54.24.png)
+
+After converting the list to a string, I then reopened the original file in write mode to overwrite its contents with the updated allow list. The with statement ensures that the file is properly closed after writing:
+
+```python
+with open(import_file, "w") as file:
+    file.write(ip_addresses)
+```
+
+![Screenshot of python code snippet](images/python_code/Screenshot-2025-02-06-at-18.55.19.png)
+
+This process ensures that the file now contains only the updated list of IP addresses, with each address on its own line.
+
+
+### Summary
+
+I developed a Python script to automate the updating of an access control file by removing unwanted IP addresses. The process begins by opening the "allow_list.txt" file and reading its contents into a string. This string is then converted into a list of IP addresses using the `.split()` method, which makes it easier to work with each individual address. The script then iterates over this list and checks if each IP address exists in the remove list. If an address is found in the remove list, it is removed from the allow list using the `.remove()` method. Finally, the updated list is converted back into a string using the `.join()` method—placing each IP on a new line—and the file is rewritten with this revised string. This approach ensures that the allow list is efficiently updated, containing only the approved IP addresses.
+
