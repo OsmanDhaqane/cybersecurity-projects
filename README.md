@@ -10,7 +10,7 @@ I am a motivated IT professional with a degree in Digital Forensics & Incident R
 - [Project 1: Professional Statement](#project-1-professional-statement)
 - [Project 2: Conduct a security audit](#project-2-conduct-a-security-audit)
 - [Project 3: Analyzing network intrusion structure and security response to a security incident](#project-3-analyzing-network-intrusion-structure-and-security-response-to-a-security-incident)
-- [Project 4: Use Linux commands to manage file permissions](#project-4-use-linux-commands-to-manange-file-permissions)
+- [Project 4: Use Linux commands to manage file permissions](#project-4-use-linux-commands-to-manage-file-permissions)
 - [Project 5: Applying filters to SQL queries](#project-5-applying-filters-to-sql-queries)
 - [Project 6: Analyze vulnerable system for a small business](#project-6-analyze-vulnerable-system-for-a-small-business)
 - [Project 7: Document an incident with an incident handlers journal](#project-7-document-an-incident-with-an-incident-handlers-journal)
@@ -498,6 +498,14 @@ Integrating these measures will help reduce the overall attack surface and enhan
 - **Was there a specific tool or concept that you enjoyed the most? Why?**  
   I enjoyed working with Splunk and Suricata because they provided real-time insights into security events, making threat detection more effective.
 
+### Sources
+
+- **NIST SP 800-61 Rev. 2:** Computer Security Incident Handling Guide. [NIST Publication](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
+- **NIST SP 800-53:** Security and Privacy Controls for Information Systems and Organizations. [NIST Publication](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
+- **SANS Institute:** Incident Handling and Response Resources. [SANS Resources](https://www.sans.org/incident-handling/)
+- **OWASP:** Incident Response Guidelines. [OWASP Incident Response](https://owasp.org/www-project-incident-response/)
+
+
 
 ---
 
@@ -636,4 +644,11 @@ This process ensures that the file now contains only the updated list of IP addr
 ### Summary
 
 I developed a Python script to automate the updating of an access control file by removing unwanted IP addresses. The process begins by opening the "allow_list.txt" file and reading its contents into a string. This string is then converted into a list of IP addresses using the `.split()` method, which makes it easier to work with each individual address. The script then iterates over this list and checks if each IP address exists in the remove list. If an address is found in the remove list, it is removed from the allow list using the `.remove()` method. Finally, the updated list is converted back into a string using the `.join()` method—placing each IP on a new line—and the file is rewritten with this revised string. This approach ensures that the allow list is efficiently updated, containing only the approved IP addresses.
+
+
+### Sources
+
+- Python Documentation for File I/O: [https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)
+- Python Documentation for `str.split()`: [https://docs.python.org/3/library/stdtypes.html#str.split](https://docs.python.org/3/library/stdtypes.html#str.split)
+- Python Documentation for `str.join()`: [https://docs.python.org/3/library/stdtypes.html#str.join](https://docs.python.org/3/library/stdtypes.html#str.join)
 
