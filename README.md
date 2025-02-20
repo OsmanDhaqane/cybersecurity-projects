@@ -339,3 +339,162 @@ The output listed employees from all departments except IT, along with their job
 
 I applied filters to SQL queries to retrieve specific information on login attempts and employee machines. By using the `log_in_attempts` and `employees` tables, I demonstrated how to apply `AND`, `OR`, and `NOT` operators to refine results based on various conditions. Additionally, I used `LIKE` and the `%` wildcard to search for patterns effectively. These techniques supported identifying suspicious login activities and retrieving targeted employee data for security updates, ensuring the organization’s systems remain secure.
 
+
+---
+
+## Project 6: Analyze vulnerable system for a small business
+
+# Vulnerability Assessment Report
+**Date:** 1st January 20XX
+
+---
+
+## System Description
+
+The server hardware consists of a powerful CPU processor and 128GB of memory. It runs on the latest version of the Linux operating system and hosts a MySQL database management system. The server is configured with a stable network connection using IPv4 addresses and interacts with other servers on the network. Security measures include SSL/TLS encrypted connections to protect data in transit.
+
+---
+
+## Scope
+
+This vulnerability assessment focuses on the current access controls of the system. The assessment covers a three-month period, from June 20XX to August 20XX, and follows the guidelines outlined in **NIST SP 800-30 Rev. 1** for risk analysis of information systems.
+
+---
+
+## Purpose
+
+The database server serves as a centralized repository for storing and managing critical business data. It holds customer leads, sales information, and essential marketing data—including customer, campaign, and analytic details—that drive both operational and strategic decisions. Securing this data is crucial to maintaining consumer trust, ensuring regulatory compliance, and preserving the company’s competitive edge. Given that the server is publicly accessible, it is imperative to address potential vulnerabilities that could lead to data leakage, manipulation, or system downtime.
+
+---
+
+## Risk Assessment
+
+The risk assessment identifies key threat events and evaluates them based on their likelihood and potential impact on business operations. The following table summarizes the main threats:
+
+| **Threat Source**      | **Threat Event**                               | **Likelihood (1-3)** | **Severity (1-3)** | **Risk (L x S)** |
+|------------------------|------------------------------------------------|----------------------|--------------------|------------------|
+| Competitor / Hacker    | Obtain sensitive information via exfiltration  | 3                    | 3                  | 9                |
+| Hacktivist / APT       | Conduct Denial-of-Service (DoS) attack         | 2                    | 3                  | 6                |
+| Insider / Employee     | Alter or delete critical information           | 2                    | 2                  | 4                |
+
+**Notes:**
+
+- **Competitor/Hacker:** Unauthorized access leading to data exfiltration poses a significant threat, given the high value of the stored information.
+- **Hacktivist/APT:** A successful DoS attack could disrupt critical operations, impacting system availability and business continuity.
+- **Insider/Employee:** Malicious or accidental actions by privileged users can compromise data integrity, though the impact is somewhat lower compared to external threats.
+
+---
+
+## Approach
+
+Risk identification and scoring were conducted by evaluating both the technical capabilities of potential threat actors and the impact that a security incident would have on the organization. The chosen threat events represent common and impactful attack vectors for a publicly accessible database:
+
+- **Data Exfiltration:** Directly threatens the organization’s competitive position.
+- **Denial-of-Service Attacks:** Disrupts vital business operations.
+- **Insider Threats:** Can lead to unauthorized changes or deletions of critical data.
+
+The risk scores (likelihood and severity) are assigned to reflect the current security posture and the operational importance of the data stored on the server.
+
+---
+
+## Remediation Strategy
+
+A layered security (defense in depth) approach is recommended to mitigate identified risks. Key recommendations include:
+
+- **Access Controls:**
+  - Implement multi-factor authentication (MFA) and role-based access controls to ensure that only authorized personnel have access to sensitive data.
+  - Enforce the principle of least privilege to limit the risk from insider threats.
+
+- **Network Security:**
+  - Deploy intrusion detection and prevention systems (IDS/IPS) combined with continuous network monitoring to detect and mitigate potential DoS attacks.
+  - Use IP allow-listing for critical access points, ensuring that only traffic from corporate offices or other trusted networks is permitted.
+
+- **Data Encryption:**
+  - Transition from SSL to TLS for encrypting data in transit, providing a stronger security posture against interception and tampering.
+
+- **Audit and Monitoring:**
+  - Strengthen audit trails and implement strict change-management procedures to detect and respond quickly to any unauthorized activity or data alterations.
+
+Integrating these measures will help reduce the overall attack surface and enhance the security posture of the information system, safeguarding critical business operations and maintaining consumer trust.
+
+## Sources
+
+- **NIST SP 800-30 Rev. 1:** Guide for Conducting Risk Assessments. [NIST Publication](https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final)
+- **NIST SP 800-53:** Security and Privacy Controls for Information Systems and Organizations. [NIST Publication](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final)
+- **OWASP:** Top Ten Project – for insights on common web vulnerabilities. [OWASP Top 10](https://owasp.org/www-project-top-ten/)
+
+---
+
+## Project 7: Document an incident with an incident handlers journal
+
+
+
+### Entry 001
+
+| **Date**              | January 9, 2025                                                                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **Entry**             | 001                                                                                                                                     |
+| **Description**       | A ransomware attack disrupted operations at a small healthcare clinic due to phishing emails. This incident falls under the **Detection and Analysis** and **Containment, Eradication, and Recovery** phases of the NIST Incident Response Lifecycle, as the attack was identified, and steps were taken to mitigate the impact. |
+| **Tool(s) used**      | None mentioned in the scenario for prevention or remediation                                                                             |
+| **The 5 W’s**         | **Who caused the incident?**<br>- An organized group of unethical hackers targeting healthcare and transportation industries.<br><br>**What happened?**<br>- Employees downloaded phishing email attachments containing ransomware, encrypting critical company files.<br><br>**When did the incident happen?**<br>- Tuesday at approximately 9:00 a.m.<br><br>**Where did the incident happen?**<br>- A small U.S. healthcare clinic.<br><br>**Why did the incident happen?**<br>- Attackers exploited employees via phishing emails, allowing them to gain network access and deploy ransomware. |
+| **Additional notes**  | - Highlights the need for **employee training** in recognizing phishing emails.<br>- Reinforces the importance of **robust cybersecurity measures** (email filtering, endpoint protection).<br>- Demonstrates the potential for **operational disruption** and reputational harm in critical sectors like healthcare. |
+
+
+
+### Entry 002
+
+| **Date**              | January 24, 2025                                                                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **Entry**             | 002                                                                                                                                     |
+| **Description**       | An investigation using Splunk Cloud identified multiple failed SSH login attempts on the mail server of Buttercup Games. This incident is categorized under **Detection and Analysis**, as log monitoring helped uncover unauthorized access attempts. **Preparation** is also relevant, as security monitoring tools were in place for proactive defense. |
+| **Tool(s) used**      | Splunk Cloud                                                                                                                             |
+| **The 5 W’s**         | **Who caused the incident?**<br>- Unauthorized users attempting to access the mail server via SSH.<br><br>**What happened?**<br>- Multiple failed SSH login attempts for the root account were detected in the logs.<br><br>**When did the incident happen?**<br>- Over a period of time, as observed in the security logs. (Exact timestamps from Splunk: 06/03/2023 - 01:39:51).<br><br>**Where did the incident happen?**<br>- The unauthorized access attempts targeted the mail server (mailsv) of Buttercup Games.<br><br>**Why did the incident happen?**<br>- The failed SSH login attempts suggest either a brute force attack or unauthorized access attempts by an external actor. |
+| **Additional notes**  | - Splunk query used: `index=main host=mailsv fail* root`<br>- Over **100 failed SSH login attempts** were identified.<br>- **Next Steps**:<br>  • Investigate source IPs.<br>  • Set up alerts in Splunk for repeated failed logins.<br>  • Review access control policies and strengthen authentication. |
+
+
+### Entry 003
+
+| **Date**              | January 25, 2025                                                                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **Entry**             | 003                                                                                                                                     |
+| **Description**       | An investigation using Suricata detected suspicious HTTP traffic matching a custom alert rule, suggesting reconnaissance or exploitation attempts. This falls under **Detection and Analysis**, as network monitoring was used to detect potential threats. The next steps involve **Containment and Eradication** to mitigate further risks. |
+| **Tool(s) used**      | Suricata                                                                                                                                |
+| **The 5 W’s**         | **Who caused the incident?**<br>- Potential unauthorized users attempting to access network resources.<br><br>**What happened?**<br>- Suricata detected suspicious HTTP traffic matching a custom alert rule, indicating possible reconnaissance or exploitation attempts.<br><br>**When did the incident happen?**<br>- November 23, 2022, at 12:38:34 UTC and 12:38:58 UTC.<br><br>**Where did the incident happen?**<br>- Unauthorized traffic was observed leaving the internal network ($HOME_NET) towards external destinations ($EXTERNAL_NET).<br><br>**Why did the incident happen?**<br>- The triggered Suricata rule suggests that external entities attempted to make GET requests, potentially probing for vulnerabilities. |
+| **Additional notes**  | - Suricata rules were tested using `sample.pcap` and `custom.rules`.<br>- Alerts were logged in `fast.log` and `eve.json`.<br>- Destination IPs: `142.250.1.139`, `142.250.1.102`.<br>- **Next Steps**:<br>  • Investigate source IPs and associated activities.<br>  • Set up additional Suricata rules to detect similar patterns.<br>  • Implement firewall rules or IPS configurations to mitigate potential threats. |
+
+---
+
+## Entry 004
+
+| **Date**              | January 25, 2025                                                                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **Entry**             | 004                                                                                                                                     |
+| **Description**       | An investigation into a phishing attempt targeting an employee via a malicious email attachment. This falls under **Detection and Analysis** as well as **Post-Incident Activity**, as the attack was identified and lessons were documented to enhance future response strategies. |
+| **Tool(s) used**      | - Email Security Gateway<br>- Threat Intelligence Database<br>- Antivirus/Malware Analysis Tool<br>- Network Traffic Analysis (IDS/IPS)  |
+| **The 5 W’s**         | **Who caused the incident?**<br>- An external threat actor using the alias "Def Communications" with domain `7tgyuyhh6tgftrt7tg.su`.<br><br>**What happened?**<br>- A phishing email containing a password-protected malicious attachment (`bfsvc.exe`) was sent to `hr@inergy.com`. The file was downloaded and executed, confirmed as malware via hash analysis.<br><br>**When did the incident happen?**<br>- July 20, 2022, at 09:30:14 AM UTC.<br><br>**Where did the incident happen?**<br>- The phishing email targeted an employee at Inergy, reaching their email infrastructure and endpoint.<br><br>**Why did the incident happen?**<br>- The email bypassed security filters due to the password-protected attachment, preventing automated malware scanning. |
+| **Additional notes**  | - The file hash `54e6ea47eb04634d3e87fd7787e2136ccfbcc80ade34f246a12cf93bab527f6b` was confirmed malicious.<br>- The sender’s domain did not match the sender’s name, a common phishing indicator.<br>- **Next Steps**:<br>  • Perform full forensic analysis on the affected system.<br>  • Block sender’s domain and IP at the email gateway and firewall.<br>  • Implement additional email filtering rules for password-protected attachments.<br>  • Provide security awareness training on phishing techniques. |
+
+
+
+### Entry 005
+
+| **Date**              | January 25, 2025                                                                                                                         |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **Entry**             | 005                                                                                                                                     |
+| **Description**       | A security incident affected customer PII and financial data due to a forced browsing vulnerability in an e-commerce web application. This falls under **Detection and Analysis** (breach identified) and **Containment, Eradication, and Recovery** (mitigation steps were implemented). |
+| **Tool(s) used**      | - Web Application Logs<br>- Security Incident Investigation Procedures                                                                   |
+| **The 5 W’s**         | **Who caused the incident?**<br>- An external attacker exploiting a forced browsing vulnerability.<br><br>**What happened?**<br>- An attacker gained unauthorized access to customer transaction data by modifying order numbers in a purchase confirmation page URL, leading to the theft of 50,000 customer records.<br><br>**When did the incident happen?**<br>- The breach was confirmed on December 28, 2022, after an attacker emailed an employee with ransom demands.<br><br>**Where did the incident happen?**<br>- The e-commerce web application’s purchase confirmation pages.<br><br>**Why did the incident happen?**<br>- A vulnerability allowed forced browsing, exposing sensitive customer data. |
+| **Additional notes**  | - The attacker attempted extortion, demanding cryptocurrency payments.<br>- Logs revealed abnormal sequential order access patterns.<br>- **Next Steps**:<br>  • Conduct routine vulnerability scans and penetration testing.<br>  • Implement URL access controls and authentication mechanisms.<br>  • Strengthen incident response procedures and user data protection. |
+
+
+### Reflections/Notes
+
+- **Were there any specific activities that were challenging for you? Why or why not?**  
+  Some activities required complex log analysis, which was initially challenging, but practice improved proficiency.
+
+- **Has your understanding of incident detection and response changed since taking this course?**  
+  Yes, I now have a structured approach to incident handling based on NIST guidelines.
+
+- **Was there a specific tool or concept that you enjoyed the most? Why?**  
+  I enjoyed working with Splunk and Suricata because they provided real-time insights into security events, making threat detection more effective.
+
