@@ -340,6 +340,24 @@ The output listed employees from all departments except IT, along with their job
 I applied filters to SQL queries to retrieve specific information on login attempts and employee machines. By using the `log_in_attempts` and `employees` tables, I demonstrated how to apply `AND`, `OR`, and `NOT` operators to refine results based on various conditions. Additionally, I used `LIKE` and the `%` wildcard to search for patterns effectively. These techniques supported identifying suspicious login activities and retrieving targeted employee data for security updates, ensuring the organization’s systems remain secure.
 
 
+### Sources
+
+- **W3Schools SQL Tutorial:**  
+  [SQL Tutorial](https://www.w3schools.com/sql/)
+
+- **SQL Operators Documentation:**  
+  [SQL Operators - W3Schools](https://www.w3schools.com/sql/sql_operators.asp)
+
+- **SQL LIKE Operator:**  
+  [SQL LIKE Operator - W3Schools](https://www.w3schools.com/sql/sql_like.asp)
+
+- **MySQL Documentation:**  
+  [MySQL 8.0 Reference Manual](https://dev.mysql.com/doc/)
+
+- **PostgreSQL Documentation:**  
+  [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+
+
 ---
 
 ## Project 6: Analyze vulnerable system for a small business
